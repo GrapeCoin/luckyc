@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 cd /home/nanobot/.nanobot/workspace/luckyc-react
+npm run build
 git add -A
-git commit -m "ci: fix GitHub Actions - add environment name for Pages deployment" --allow-empty
+git commit -m "fix: remove eager provider init to avoid crash without MetaMask" --allow-empty
 git push

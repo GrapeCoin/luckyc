@@ -1,9 +1,0 @@
-#!/bin/bash
-# Build and commit (GitHub Actions handles deployment)
-cd /home/nanobot/.nanobot/workspace/luckyc-react
-npm run build
-mkdir -p dist-html
-cp dist/index.html dist-html/index.html
-git add -A
-git commit -m "chore: update built assets" --allow-empty
-git push

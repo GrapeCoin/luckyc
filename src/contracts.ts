@@ -6,13 +6,20 @@ function getEthereum() {
   return (window as unknown as { ethereum?: { request: (args: { method: string; params?: unknown[] }) => Promise<unknown> } }).ethereum
 }
 
+// Lazy getter so we don't crash on load when no wallet is present
+let _provider: ethers.providers.Web3Provider | null = null
+
 export function getProvider() {
   const eth = getEthereum()
   if (!eth) throw new Error('No ethereum provider')
-  return new ethers.providers.Web3Provider(eth)
+  if (!_provider) _provider = new ethers.providers.Web3Provider(eth)
+  return _provider
 }
 
-export const provider = getProvider()
+// ❌ 移除 eager export:
+// export const provider = getProvider()
+
+// ✅ 调用时实时获取
 
 export async function connectWallet(): Promise<string[]> {
   const eth = getEthereum()
