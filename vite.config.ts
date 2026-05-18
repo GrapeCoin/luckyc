@@ -6,4 +6,9 @@ export default defineConfig({
   define: {
     global: 'globalThis',
   },
+  base: '/luckyc-react/',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
 })
