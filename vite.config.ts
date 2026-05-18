@@ -6,7 +6,7 @@ export default defineConfig({
   define: {
     global: 'globalThis',
   },
-  base: '/luckyc/',
+  base: './',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
