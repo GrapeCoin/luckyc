@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kraken Design System + Tailwind */
+
+/* CSS Variables for Kraken Theme */
+:root {
+  --kraken-purple: #7132f5;
+  --kraken-purple-dark: #5741d8;
+  --kraken-purple-deep: #5b1ecf;
+  --kraken-purple-subtle: rgba(133, 91, 251, 0.16);
+  --near-black: #101114;
+  --cool-gray: #686b82;
+  --silver-blue: #9497a9;
+  --border-gray: #dedee5;
+  --green: #149e61;
+  --green-dark: #026b3f;
+  --green-subtle: rgba(20, 158, 97, 0.16);
+}
+
+/* Base styles */
+body {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #101114;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Button variants */
+.btn-primary {
+  @apply text-white font-medium px-4 py-3 rounded-xl transition-all duration-200;
+  background: #7132f5;
+  border: 1px solid #7132f5;
+}
+.btn-primary:hover {
+  background: #5b1ecf;
+  border-color: #5b1ecf;
+}
+.btn-primary:active {
+  background: #5741d8;
+  transform: scale(0.98);
+}
+.btn-primary:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.btn-outline {
+  @apply text-[#5741d8] font-medium px-4 py-3 rounded-xl transition-all duration-200 bg-white;
+  border: 1px solid #5741d8;
+}
+.btn-outline:hover {
+  background: rgba(133, 91, 251, 0.08);
+}
+.btn-outline:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply text-[#101114] font-medium px-4 py-3 rounded-xl transition-all duration-200;
+  background: rgba(148, 151, 169, 0.08);
+}
+.btn-secondary:hover {
+  background: rgba(148, 151, 169, 0.15);
+}
+
+.btn-white {
+  @apply text-[#101114] font-medium px-4 py-3 rounded-xl transition-all duration-200 bg-white;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 4px 24px;
+}
+.btn-white:hover {
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 24px;
+}
+
+/* Badge styles */
+.badge-success {
+  @apply inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold;
+  background: rgba(20, 158, 97, 0.16);
+  color: #026b3f;
+}
+
+.badge-neutral {
+  @apply inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium;
+  background: rgba(104, 107, 130, 0.12);
+  color: #484b5e;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-2xl p-6;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 4px 24px;
+  border: 1px solid #dedee5;
+}
+
+.card-purple {
+  @apply bg-white rounded-2xl p-6;
+  box-shadow: 0 4px 24px rgba(113, 50, 245, 0.12);
+  border: 2px solid #7132f5;
+}
+
+/* Typography */
+.display-hero {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: -1px;
+}
+
+.section-heading {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.5px;
+}
+
+.sub-heading {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.5px;
+}
+
+.feature-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.20;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.38;
+  color: #686b82;
+}
+
+.text-muted {
+  color: #9497a9;
+}
+
+.text-purple {
+  color: #7132f5;
+}
+
+.text-purple-dark {
+  color: #5741d8;
+}
+
+.text-success {
+  color: #149e61;
+}
+
+.text-primary {
+  color: #101114;
+}
+
+/* Table styles */
+.kraken-table {
+  @apply w-full border-collapse;
+}
+
+.kraken-table thead th {
+  @apply text-left text-xs font-semibold uppercase tracking-wider px-4 py-3;
+  color: #9497a9;
+  border-bottom: 1px solid #dedee5;
+}
+
+.kraken-table tbody td {
+  @apply px-4 py-4 text-sm;
+  color: #101114;
+  border-bottom: 1px solid #f4f4f6;
+}
+
+.kraken-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.kraken-table tbody tr:hover {
+  background: rgba(148, 151, 169, 0.04);
+}
+
+/* Animations */
+@keyframes pulse-purple {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(113, 50, 245, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(113, 50, 245, 0); }
+}
+
+.animate-pulse-purple {
+  animation: pulse-purple 2s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin;
+}
