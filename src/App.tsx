@@ -41,13 +41,13 @@ function App() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-purple flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple/30">
+            <a href="/" className="flex items-center gap-2 sm:gap-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-lg shadow-purple/30">
                 L
               </div>
               <div>
-                <span className="font-bold text-lg text-primary tracking-tight">LuckyC Number</span>
-                <span className="block text-xs text-muted -mt-0.5">{CONFIG.chainName}</span>
+                <span className="font-bold text-base sm:text-lg text-primary tracking-tight">LuckyC Number</span>
+                <span className="text-xs text-muted -mt-0.5">{CONFIG.chainName}</span>
               </div>
             </a>
 

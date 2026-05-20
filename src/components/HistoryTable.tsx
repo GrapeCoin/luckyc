@@ -95,40 +95,73 @@ export function HistoryTable() {
             <p className="text-xs text-muted mt-1">Be the first to participate!</p>
           </div>
         ) : (
-          <table className="kraken-table">
-            <thead>
-              <tr>
-                <th>Round</th>
-                <th>Prize Pool</th>
-                <th>Lucky Number</th>
-                <th>Winner</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
+          <>
+            {/* Mobile card layout */}
+            <div className="block sm:hidden space-y-3 p-4">
               {displayHistory.map((entry) => (
-                <tr key={entry.round}>
-                  <td>
-                    <span className="font-semibold text-primary">#{entry.round}</span>
-                  </td>
-                  <td>
-                    <span className="text-purple-dark font-semibold">{entry.totalPool}</span>
-                  </td>
-                  <td>
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-purple-subtle text-purple font-bold text-sm">
-                      {entry.luckyNumber}
-                    </span>
-                  </td>
-                  <td>
-                    <code className="text-xs bg-gray-100 px-2 py-1 rounded">{truncate(entry.winner)}</code>
-                  </td>
-                  <td>
+                <div key={entry.round} className="bg-white rounded-xl border border-[#dedee5] p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-primary">Round #{entry.round}</span>
                     <WinnerBadge />
-                  </td>
-                </tr>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-1">Prize Pool</p>
+                      <p className="text-purple-dark font-semibold text-base">{entry.totalPool}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-1">Lucky Number</p>
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-purple-subtle text-purple font-bold text-sm">
+                        {entry.luckyNumber}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pt-2 border-t border-gray-100">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-1">Winner</p>
+                    <code className="text-xs bg-gray-100 px-2 py-1 rounded">{truncate(entry.winner)}</code>
+                  </div>
+                </div>
               ))}
-            </tbody>
-          </table>
+            </div>
+
+            {/* Desktop table */}
+            <div className="hidden sm:block !p-0 overflow-x-auto">
+              <table className="kraken-table">
+                <thead>
+                  <tr>
+                    <th>Round</th>
+                    <th>Prize Pool</th>
+                    <th>Lucky Number</th>
+                    <th>Winner</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {displayHistory.map((entry) => (
+                    <tr key={entry.round}>
+                      <td>
+                        <span className="font-semibold text-primary">#{entry.round}</span>
+                      </td>
+                      <td>
+                        <span className="text-purple-dark font-semibold">{entry.totalPool}</span>
+                      </td>
+                      <td>
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-purple-subtle text-purple font-bold text-sm">
+                          {entry.luckyNumber}
+                        </span>
+                      </td>
+                      <td>
+                        <code className="text-xs bg-gray-100 px-2 py-1 rounded">{truncate(entry.winner)}</code>
+                      </td>
+                      <td>
+                        <WinnerBadge />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </section>
